@@ -1,0 +1,385 @@
+
+body {
+    margin:0;
+    padding:0;
+    background:black;
+    user-select:none;
+    overflow:hidden;
+    -webkit-user-select : none;
+}
+#cnv{ /*image: https://discoveringegypt.com/*/
+    display:none;
+background:url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Mt.Tokusa-tozandou.jpg/1280px-Mt.Tokusa-tozandou.jpg") no-repeat ;
+    background-size:cover;
+    z-index:1;
+}
+#buttons{
+    position:absolute ;
+    display:flex;
+    width:100%;
+    bottom:0;
+    color:black;
+    font-family:"Indie Flower";
+    font-size:2em;
+    font-weight: bolder;
+    z-index:2;
+ justify-content:center;
+}
+.wrap {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  
+  .startbtn {
+    min-width: 150px;
+    min-height: 40px;
+    margin-left: 18px;
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    font-size: 22px;
+    
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+    color: #313133;
+    background: #4FD1C5;
+  background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
+    border: none;
+    border-radius:300px;
+    box-shadow: 12px 12px 24px rgba(79,209,197,.64);
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    padding: 10px;
+    bottom: 10px;
+    }
+  
+  .startbtn::before {
+  content: '';
+    border-radius: 1000px;
+    min-width: calc(300px + 12px);
+    min-height: calc(60px + 12px);
+    border: 6px solid #00FFCB;
+    box-shadow: 0 0 60px rgba(0,255,203,.64);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all .3s ease-in-out 0s;
+  }
+  
+  .startbtn:hover, .startbtn:focus {
+    color: #313133;
+    transform: translateY(-6px);
+  }
+  
+  .startbtn:hover::before, .startbtn:focus::before {
+    opacity: 1;
+  }
+  
+  .startbtn::after {
+    content: '';
+    width: 30px; height: 30px;
+    border-radius: 100%;
+    border: 6px solid #00FFCB;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ring 1.5s infinite;
+  }
+  
+  .startbtn:hover::after, .startbtn:focus::after {
+    animation: none;
+    display: none;
+  }
+  
+  @keyframes ring {
+    0% {
+      width: 30px;
+      height: 30px;
+      opacity: 1;
+    }
+    100% {
+      width: 300px;
+      height: 300px;
+      opacity: 0;
+    }
+  }
+#btn{
+    display:flex;
+    width:50%;
+    height:40px;
+    margin-left:5px;
+    margin-right:5px;
+    background:transparent;
+    box-shadow:2px -6px 32px 2px black;
+    border-left:1px black inset;
+    align-items:center;
+ justify-content:center;
+}
+#startpage, #startimg, #gameover, #overimg{
+    display:flex;
+    align-items:center;
+   flex-flow: column nowrap;
+}
+#startpage, #gameover{
+    position:absolute ;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    margin:auto;
+    width:100%;
+    height:100%;
+    z-index:4;
+}
+#startimg{  /*image: https://discoveringegypt.com/*/
+    margin:1%;
+    width:90%;
+    height:90%;
+
+
+}
+#startimg  #background-video{
+    width: 100vw;
+height: 100vh;
+object-fit: cover;
+position: fixed;
+left: 0;
+right: 0;
+top: 0;
+bottom: 0;
+z-index: -1;
+}
+#overimg{  /*image: https://discoveringegypt.com/*/
+    width:100%;
+    height:100%;
+  background:url("rengokusan.png") no-repeat;
+    object-fit: fill;
+    /*border:1px dotted rgb(178,125,12);*/
+}
+
+#instr_panel, #over_panel{
+    margin:auto;
+    top:10px;
+    left:0;
+    right:0;
+    width:95%;
+    border-radius:10%;
+    background-color:white;
+    opacity:0.5;
+    box-shadow:1px 2px 30px 15px black;
+}
+#instr_text, #result{
+    margin:10px;
+    top:20px;
+    font-family:'Satisfy',serif;
+    color:black;
+    font-weight:bold;
+    text-align:center;
+}
+
+#instr_text{
+    font-size:20px;
+}
+ #result{
+   font-size:25px;
+ }
+
+#replay{
+    margin-bottom:5%;
+    margin-right: 5%;
+    width:30%;
+    height:40px;
+    border-radius:20%;
+    background:rgba(235, 33, 33, 0.8);
+    font-family:'Indie Flower';
+    font-size:20px;
+    font-weight:bold;
+    color:black;
+    align-items:center ;
+    justify-content:center;
+    display:flex;
+    box-shadow:1px 2px 30px 15px black;
+    border:5px dotted black;
+    animation:movebutton 2s infinite ;
+}
+
+@keyframes movebutton {
+    0% {transform:scale(1);}
+    25% {transform:scale(0.95);}
+    50% {transform:scale(1);}
+    75% {transform:scale(0.95);}
+    100% {transform:scale(1);}
+}
+
+#titleover{
+    font-family:'Satisfy', serif;
+    font-weight:bold;
+    font-size:30px;
+    color:black;
+    margin-top:5%;   
+    text-align:center;
+} 
+#choosepage, #gameover, #startpage {
+    display:none;
+}
+#imgblock{
+    position:absolute ;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    display:flex;
+    flex-direction:row;
+     margin:10% auto auto auto;
+    width:50%;
+    height:200px;
+    z-index:3;
+    background-color:transparent;
+    /*border:2px solid red;*/
+}
+#imga{
+    margin:0;
+    width:100%;
+    height:100%;
+  background:url(" https://variety.com/wp-content/uploads/2020/09/demonslayer.png ") no-repeat ;
+    box-shadow:1px 2px 40px 40px;
+    background-size:100%;
+    border:1px dotted rgb(178,125,12);
+    padding-right: 12px;
+}
+
+#imgb{
+    margin:0;
+    width:100%;
+    height:100%;
+  background:url("https://asia.sega.com/kimetsu_hinokami/en/assets/img/sub/character/chara3_thumb.png") no-repeat ;
+    box-shadow:1px 2px 40px 40px;
+    background-size:100%;
+    border:1px dotted rgb(178,125,12);
+    padding-left: 12px;
+}
+#imgc{
+  margin:0;
+  width:100%;
+  height:100%;
+background:url(" https://wallpaperaccess.com/full/2960437.jpg ") no-repeat ;
+  box-shadow:1px 2px 40px 40px;
+  background-size:100%;
+  border:1px dotted rgb(178,125,12);
+  padding-top: 12px;
+}
+
+#imgd{
+  margin:0;
+  width:100%;
+  height:100%;
+background:url(" https://static.wikia.nocookie.net/kimetsu-no-yaiba/images/4/43/Giyu_anime_design.png/revision/latest?cb=20190831073602.png") no-repeat ;
+  box-shadow:1px 2px 40px 40px;
+  background-size:100%;
+  border:1px dotted rgb(178,125,12);
+  padding-top: 12px;
+}
+#titlech{
+    font-family:'Satisfy',serif;
+    font-weight:bold;
+    font-size:30px;
+    color:grey;
+    margin-top:5%;   
+    text-align:center;
+}
+#loaderpart{
+    position:absolute ;
+    display:flex;
+    width:100%;
+    height:100%;
+    z-index:1;
+}
+#loader{
+    margin:auto;
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    border:5px dashed rgba(226,177,247,0.4);
+    box-shadow:1px 2px 50px 20px rgb(178,125,12);
+    animation: move 4s infinite;
+}
+@keyframes move{
+    0%{transform:rotate(0deg);}
+    20%{transform:rotate(180deg);}
+}
+@media(max-height:400px){  /*240px alattiak */
+    #instr_text{
+        font-size:12px;}
+    #instr_panel{
+        margin:0;}
+    #result{
+        font-size:14px;}
+}
+
+.body6 {
+
+  justify-content: top;
+  height: 50vh;
+  text-align: center;
+  font-family:  Helvetica, sans-serif;
+}
+.title {
+  font-weight: 900;
+  font-size: 7vw;
+  margin: 0;
+  filter: url(#goo);
+  position: relative;
+  letter-spacing: -0.10em;
+  color: #bb0a1e;
+  text-transform: uppercase;
+}
+.drop {
+  width: 0.1em;
+  height: 0.1em;
+  border-radius: 0 100% 100% 100%;
+  background-color: currentColor;
+  position: absolute;
+  top: 72%;
+  animation: drop 3s infinite both;
+}
+.drop:nth-child(1) {
+  left: 14%;
+}
+.drop:nth-child(2) {
+  left: 39%;
+  animation-delay: -0.4s;
+}
+.drop:nth-child(3) {
+  left: 55%;
+  animation-delay: -1.5s;
+}
+.drop:nth-child(4) {
+  left: 82%;
+  animation-delay: -0.8s;
+}
+.drop:nth-child(5) {
+  left: 95.5%;
+  animation-delay: -1.3s;
+}
+@keyframes drop {
+  0% {
+      transform: translateY(0) scaleX(0.85) rotate(45deg);
+      animation-timing-function: ease-out;
+ }
+  60% {
+      transform: translateY(120%) scaleX(0.85) rotate(45deg);
+      animation-timing-function: ease-in;
+ }
+  80%, 100% {
+      transform: translateY(60vh) scaleX(0.85) rotate(45deg);
+ }
+}
